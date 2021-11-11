@@ -74,6 +74,11 @@ class Motion extends EventEmitter {
     return this;
   }
 
+  static bind(element:HTMLElement) {
+    this.current = element;
+    return this;
+  }
+
   static checkIfHasDomRender(callback) {
     if (this.plugins['DomRender'] === undefined) {
       console.error(`plugin miss:this function is based on 'domRender' plugin`);
@@ -116,6 +121,10 @@ class Motion extends EventEmitter {
       this.dom(this.current, ani).render();
     });
     return this;
+  }
+
+  static keyframe() {
+
   }
 }
 
