@@ -70,7 +70,7 @@ class Motion extends EventEmitter {
 
   // for dom animation
   static get(id: string) {
-    this.current = document.getElementById(id);
+    this.current = document.querySelector(id);
     return this;
   }
 
@@ -123,8 +123,8 @@ class Motion extends EventEmitter {
     return this;
   }
 
-  static keyframe() {
-
+  static keyframe(keyframe, options) {
+    return this;
   }
 }
 
