@@ -1,4 +1,4 @@
-import { TranslateOptions, ScaleOptions, RotateOptions, MoveOptions, AttributeOptions, ActionTree, StepOptions, SkewOptions, StatusDescription, Point, PathOptions } from '../@types';
+import { TranslateOptions, ScaleOptions, RotateOptions, MoveOptions, AttributeOptions, ActionTree, StepOptions, SkewOptions, StatusDescription, Point, PathOptions, Keyframe } from '../@types';
 declare class AnimationLanguageSupport {
     actions: ActionTree;
     constructor();
@@ -14,5 +14,6 @@ declare class AnimationLanguageSupport {
     attribute(options: AttributeOptions | string, value?: string, duration?: number): this;
     path(points: Point[], options?: PathOptions): this;
     wait(time: number): this;
+    keyframe(keyframe: Keyframe, options: any): void;
 }
 export default AnimationLanguageSupport;

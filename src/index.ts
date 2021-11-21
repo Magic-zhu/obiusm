@@ -1,5 +1,5 @@
-import Motion from './base/index'
+import Motion from './core/index';
 
-let mot = Motion
+const Obiusm = Motion;
 
-export default mot
+export default Obiusm;

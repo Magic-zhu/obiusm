@@ -1,3 +1,3 @@
-import Motion from './base/index';
-declare let mot: typeof Motion;
-export default mot;
+import Motion from './core/index';
+declare const Obiusm: typeof Motion;
+export default Obiusm;

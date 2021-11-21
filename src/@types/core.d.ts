@@ -75,7 +75,7 @@ export interface StepOptions {
 
 export interface StatusDescription {
     type:string,
-    description?:string, 
+    description?:string,
 }
 
 export interface Point {
@@ -86,4 +86,8 @@ export interface Point {
 export interface PathOptions {
     precision?:number,
     ratio?:number,
+}
+
+export interface Keyframe {
+    [key:number]:Object
 }
