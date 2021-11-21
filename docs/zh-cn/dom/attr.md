@@ -21,8 +21,8 @@ attribute(options)
 ### 示例代码
 
 ```js
-mot.use(DomRender);
-let Animation = mot
+obiusm.use(ObiusmDom);
+let Animation = obiusm
   .create()
   .attribute("backgroundColor", "red", 400)
   .attribute("backgroundColor", "orange")
@@ -32,6 +32,6 @@ let Animation = mot
   .attribute("backgroundColor", "purple")
   .attribute("borderRadius", "50%")
   .attribute("opacity", "0");
-let renderer = mot.dom(document.getElementById("app"), Animation);
+let renderer = obiusm.dom(document.getElementById("app"), Animation);
 renderer.render();
 ```

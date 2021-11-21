@@ -7,8 +7,8 @@
 
 moveTo(x,y,duration)
 
-- x: x坐标 可以是number 默认单位'px' 可以是带单位的string ex:'100vw'
-- y: y坐标 可以是number 默认单位'px' 可以是带单位的string ex:'100vw'
+- x: x 坐标 可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'
+- y: y 坐标 可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'
 - duration：动画持续时间
 
 或者可以传入一个对象
@@ -21,15 +21,23 @@ moveTo(options)
 
 ### 示例代码
 
+单个动画
+
 ```js
-    mot.use(DomRender);
-    let Animation = mot
-        .create()
-        .moveTo('100vw','0')
-        .moveTo(200,200,1000)
-        .moveTo({x:0,y:0,duration:1000,timeFunction:'ease'})
-        ;
-        console.log(Animation)
-    let renderer = mot.dom(document.getElementById('app'), Animation);
-    renderer.render()
+obiusm.use(ObiusmDom);
+obiusm.get("#app2").moveTo(300, 300);
+```
+
+复杂动画
+
+```js
+obiusm.use(ObiusmDom);
+let Animation = obiusm
+  .create()
+  .moveTo("100vw", "0")
+  .moveTo(200, 200, 1000)
+  .moveTo({ x: 0, y: 0, duration: 1000, timeFunction: "ease" });
+console.log(Animation);
+let renderer = obiusm.dom(document.getElementById("app"), Animation);
+renderer.render();
 ```

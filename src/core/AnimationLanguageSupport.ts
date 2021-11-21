@@ -5,16 +5,22 @@ import {
   RotateOptions,
   MoveOptions,
   AttributeOptions,
-  ActionTree,
   StepOptions,
   SkewOptions,
-  StatusDescription,
-  Point,
   PathOptions,
   Keyframe,
+  StatusDescription,
+  ActionTree,
+  Point,
+  AnimationType,
 } from '../@types';
-import Motion from '.';
-import {isUndef, copyOptions, isObject} from '../utils/share';
+import Obisum from '.';
+import {
+  isUndef,
+  copyOptions,
+  isObject,
+  getRandomString32,
+} from '../utils/share';
 
 class AnimationLanguageSupport {
   actions: ActionTree;
@@ -33,13 +39,14 @@ class AnimationLanguageSupport {
       duration: 400,
       timeFunction: 'linear',
       transformOrigin: '50% 50%',
+      id: getRandomString32(),
     };
   }
 
   statusOn(
-      statusDescription: StatusDescription | string,
-      description?: string,
-      transformOrigin?: string,
+    statusDescription: StatusDescription | string,
+    description?: string,
+    transformOrigin?: string,
   ) {
     let _statusDescription;
     if (isObject(statusDescription)) {
@@ -93,16 +100,16 @@ class AnimationLanguageSupport {
       children: [],
     };
     actions.duration = isUndef(options.duration) ? 400 : options.duration;
-    actions.timeFunction = isUndef(options.timeFunction) ?
-      'linear' :
-      options.timeFunction;
+    actions.timeFunction = isUndef(options.timeFunction)
+      ? 'linear'
+      : options.timeFunction;
     args.forEach((res) => {
       res.parent = actions;
       res.duration = actions.duration;
       res.timeFunction =
-        res.timeFunction === undefined ?
-          actions.timeFunction :
-          res.timeFunction;
+        res.timeFunction === undefined
+          ? actions.timeFunction
+          : res.timeFunction;
       actions.children.push(res);
     });
     this.actions.children.push(actions);
@@ -196,9 +203,9 @@ class AnimationLanguageSupport {
   }
 
   attribute(
-      options: AttributeOptions | string,
-      value?: string,
-      duration?: number,
+    options: AttributeOptions | string,
+    value?: string,
+    duration?: number,
   ) {
     const action: Action = this.initAction();
     action.action = 'attribute';
@@ -220,13 +227,13 @@ class AnimationLanguageSupport {
   }
 
   path(points: Point[], options: PathOptions = {}) {
-    if (Motion.plugins['mot-plugin-path'] === undefined) {
+    if (Obisum.plugins['mot-plugin-path'] === undefined) {
       console.error(`'path()':this function is based on 'path' plugin`);
       return;
     }
     const action = this.initAction();
     action.action = 'path';
-    const Path = Motion.createPath();
+    const Path = Obisum.func.createPath();
     action.points = Path.createSmoothLine(points, {
       precision: options.precision || 50,
       ratio: options.ratio || 0.3,
@@ -238,14 +245,17 @@ class AnimationLanguageSupport {
 
   wait(time: number) {
     const action = this.initAction();
-    action.action = 'wait';
+    action.action = AnimationType.WAIT;
     action.time = time;
     this.actions.children.push(action);
     return this;
   }
 
-  keyframe(keyframe:Keyframe, options) {
-
+  keyframe(keyframe: Keyframe, options) {
+    const action: Action = this.initAction();
+    action.action = AnimationType.KEYFRAME;
+    this.actions.children.push(action);
+    return this;
   }
 }
 

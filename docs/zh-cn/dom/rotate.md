@@ -22,17 +22,17 @@ attribute(options)
 ### 示例代码
 
 ```js
-mot.use(DomRender);
-let Animation = mot.create().rotate(45).rotate(90).rotate(135);
+obiusm.use(ObiusmDom);
+let Animation = obiusm.create().rotate(45).rotate(90).rotate(135);
 console.log(Animation);
-let renderer = mot.dom(document.getElementById("app"), Animation);
+let renderer = obiusm.dom(document.getElementById("app"), Animation);
 renderer.render();
-let Animation2 = mot
+let Animation2 = obiusm
   .create()
   .rotate({ z: 45, transformOrigin: "100% 100%" })
   .rotate({ z: 90, transformOrigin: "100% 100%" })
   .rotate({ z: 135, transformOrigin: "100% 100%" });
 console.log(Animation);
-let renderer2 = mot.dom(document.getElementById("app2"), Animation2);
+let renderer2 = obiusm.dom(document.getElementById("app2"), Animation2);
 renderer2.render();
 ```

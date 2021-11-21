@@ -89,5 +89,5 @@ export interface PathOptions {
 }
 
 export interface Keyframe {
-    [key:number]:string
+    [key:number]:Object
 }

@@ -5,26 +5,29 @@ import {
   ScaleOptions,
   RotateOptions,
   AttributeOptions,
+  Keyframe,
+  ObisumType,
 } from '../@types';
 import EventEmitter from './EventEmitter';
 import AnimationLanguageSupport from './AnimationLanguageSupport';
 import {isUndef} from '../utils/share';
 
-class Motion extends EventEmitter {
+class Obisum extends EventEmitter implements ObisumType {
   static plugins: PluginsMap = {};
-
+  static dom: Function;
+  static func: any;
   static use(plugin: Plugin) {
     const pluginName = plugin.pluginName;
     if (isUndef(pluginName)) {
       console.error(
-          `Plugin Class must specify plugin's name 
+        `Plugin Class must specify plugin's name 
           in static property by 'name' field.`,
       );
       return this;
     }
     if (isUndef(plugin.installed)) {
       console.error(
-          `Plugin Class must specify plugin's 
+        `Plugin Class must specify plugin's 
           installed in static property by 'installed' field.`,
       );
       return this;
@@ -35,12 +38,12 @@ class Motion extends EventEmitter {
     }
     if (this.plugins[pluginName] != undefined) {
       console.warn(
-          `🌈This plugin has been registered, 
+        `🌈This plugin has been registered, 
           maybe you could change plugin\'s name`,
       );
       return this;
     }
-    plugin.install(Motion);
+    plugin.install(Obisum);
     plugin.installed = true;
     this.plugins[pluginName] = plugin;
     return this;
@@ -58,11 +61,8 @@ class Motion extends EventEmitter {
       return;
     }
     this[methodName] = method;
+    this.func[methodName] = method;
   }
-
-  // TODO: 插件注册方法 类型检测问题 预先定义
-  static createPath: Function;
-  static dom: Function;
 
   static create() {
     return new AnimationLanguageSupport();
@@ -71,10 +71,13 @@ class Motion extends EventEmitter {
   // for dom animation
   static get(id: string) {
     this.current = document.querySelector(id);
+    if (!this.current) {
+      throw new Error('The dom is null');
+    }
     return this;
   }
 
-  static bind(element:HTMLElement) {
+  static bind(element: HTMLElement) {
     this.current = element;
     return this;
   }
@@ -112,9 +115,9 @@ class Motion extends EventEmitter {
   }
 
   static attribute(
-      options: AttributeOptions | string,
-      value?: string,
-      duration?: number,
+    options: AttributeOptions | string,
+    value?: string,
+    duration?: number,
   ) {
     this.checkIfHasDomRender(() => {
       const ani = this.create().attribute(options, value, duration);
@@ -123,9 +126,9 @@ class Motion extends EventEmitter {
     return this;
   }
 
-  static keyframe(keyframe, options) {
+  static keyframe(keyframe: Keyframe, options) {
     return this;
   }
 }
 
-export default Motion;
+export default Obisum;

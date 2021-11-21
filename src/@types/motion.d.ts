@@ -1,11 +1,6 @@
-interface commonFunction {
+/* eslint-disable no-unused-vars */
+export interface commonFunction {
     (arg?: any): void
-}
-export default interface MomoOptions {
-    el: HTMLDivElement;
-    render: string;//dom svg canvas
-    beforeStart?: commonFunction;
-    end?: commonFunction;
 }
 
 export interface Plugin {
@@ -16,4 +11,10 @@ export interface Plugin {
 
 export interface PluginsMap {
     [key: string]: any;
+}
+
+export enum AnimationType {
+    MOVE = 'move',
+    WAIT = 'wait',
+    KEYFRAME = 'keyframe',
 }
