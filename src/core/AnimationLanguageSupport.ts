@@ -254,6 +254,8 @@ class AnimationLanguageSupport {
   keyframe(keyframe: Keyframe, options) {
     const action: Action = this.initAction();
     action.action = AnimationType.KEYFRAME;
+    action.keyframe = keyframe;
+    copyOptions(options, action, ['duration', 'timeFunction']);
     this.actions.children.push(action);
     return this;
   }
