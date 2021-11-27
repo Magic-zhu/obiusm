@@ -88,6 +88,13 @@ export interface PathOptions {
     ratio?:number,
 }
 
-export interface Keyframe {
-    [key:number]:Object
+export interface KeyframeAction {
+   [key:string]:string
 }
+
+export interface KeyframeItem {
+    process:string
+    action:KeyframeAction
+}
+
+export type Keyframe = KeyframeItem []

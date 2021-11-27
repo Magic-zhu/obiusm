@@ -1,14 +1,14 @@
-import { Plugin, PluginsMap, MoveOptions, ScaleOptions, RotateOptions, AttributeOptions, Keyframe } from '../@types';
+import { Plugin, PluginsMap, MoveOptions, ScaleOptions, RotateOptions, AttributeOptions, Keyframe, ObisumType } from '../@types';
 import EventEmitter from './EventEmitter';
 import AnimationLanguageSupport from './AnimationLanguageSupport';
-declare class Obisum extends EventEmitter {
+declare class Obisum extends EventEmitter implements ObisumType {
     static plugins: PluginsMap;
+    static dom: Function;
+    static func: any;
     static use(plugin: Plugin): typeof Obisum;
     static current: HTMLElement;
     constructor();
     static register(methodName: string, method: Function): void;
-    static createPath: Function;
-    static dom: Function;
     static create(): AnimationLanguageSupport;
     static get(id: string): typeof Obisum;
     static bind(element: HTMLElement): typeof Obisum;

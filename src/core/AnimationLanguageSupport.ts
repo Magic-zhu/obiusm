@@ -100,16 +100,16 @@ class AnimationLanguageSupport {
       children: [],
     };
     actions.duration = isUndef(options.duration) ? 400 : options.duration;
-    actions.timeFunction = isUndef(options.timeFunction)
-      ? 'linear'
-      : options.timeFunction;
+    actions.timeFunction = isUndef(options.timeFunction) ?
+      'linear' :
+      options.timeFunction;
     args.forEach((res) => {
       res.parent = actions;
       res.duration = actions.duration;
       res.timeFunction =
-        res.timeFunction === undefined
-          ? actions.timeFunction
-          : res.timeFunction;
+        res.timeFunction === undefined ?
+          actions.timeFunction :
+          res.timeFunction;
       actions.children.push(res);
     });
     this.actions.children.push(actions);
@@ -255,7 +255,15 @@ class AnimationLanguageSupport {
     const action: Action = this.initAction();
     action.action = AnimationType.KEYFRAME;
     action.keyframe = keyframe;
-    copyOptions(options, action, ['duration', 'timeFunction']);
+    copyOptions(options, action, [
+      'duration',
+      'timeFunction',
+      'fillMode',
+      'delay',
+      'iterationCount',
+      'direction',
+      'playState',
+    ]);
     this.actions.children.push(action);
     return this;
   }

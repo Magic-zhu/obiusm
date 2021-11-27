@@ -1,2 +1,3 @@
-export * from './core.d';
-export * from './motion.d';
+export * from './core';
+export * from './motion';
+export declare type ObisumType = any;
