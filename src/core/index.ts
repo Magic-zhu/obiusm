@@ -15,7 +15,7 @@ import {isUndef} from '../utils/share';
 class Obisum extends EventEmitter implements ObisumType {
   static plugins: PluginsMap = {};
   static dom: Function;
-  static func: any;
+  static func: any = {};
   static use(plugin: Plugin) {
     const pluginName = plugin.pluginName;
     if (isUndef(pluginName)) {

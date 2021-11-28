@@ -4,7 +4,10 @@ import {terser} from 'rollup-plugin-terser';
 export default [
   {
     input: 'src/index.ts',
-    plugins: [typescript(), terser()],
+    plugins: [
+      typescript(),
+      // terser()
+    ],
     output: [
       {
         file: 'dist/obiusm-ems.min.js',

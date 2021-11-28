@@ -14,6 +14,6 @@ declare class AnimationLanguageSupport {
     attribute(options: AttributeOptions | string, value?: string, duration?: number): this;
     path(points: Point[], options?: PathOptions): this;
     wait(time: number): this;
-    keyframe(keyframe: Keyframe, options: any): this;
+    keyframe(id: string, keyframe: Keyframe, options?: {}): this;
 }
 export default AnimationLanguageSupport;

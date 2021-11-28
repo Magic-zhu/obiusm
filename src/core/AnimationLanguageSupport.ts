@@ -251,10 +251,25 @@ class AnimationLanguageSupport {
     return this;
   }
 
-  keyframe(keyframe: Keyframe, options) {
+  /**
+   *
+   * @param {string} id - Unique tag
+   * @param {Keyframe} keyframe
+   * @param {*} options
+   * @return {*}
+   * @memberof AnimationLanguageSupport
+   */
+  keyframe(id: string, keyframe: Keyframe, options = {}) {
     const action: Action = this.initAction();
     action.action = AnimationType.KEYFRAME;
     action.keyframe = keyframe;
+    if (isUndef(id) || typeof id !== 'string') {
+      throw new Error(
+        `id is necessary and it should be a string,
+        so you can remove it sometime`,
+      );
+    }
+    action.uid = id;
     copyOptions(options, action, [
       'duration',
       'timeFunction',
