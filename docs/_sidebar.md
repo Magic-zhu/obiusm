@@ -1,8 +1,7 @@
 - 快速开始
   - [介绍](/zh-cn/index.md)
-  - [快速上手](/zh-cn/install.md)
 - dom 渲染
-  - 简易教程
+  - 基础功能
     - [快速上手](/zh-cn/dom/install.md)
     - [位移](/zh-cn/dom/move.md)
     - [旋转](/zh-cn/dom/rotate.md)
@@ -10,7 +9,7 @@
     - [属性变化](/zh-cn/dom/attr.md)
     - [等待](/zh-cn/dom/wait.md)
     - [关键帧动画](/zh-cn/dom/keyframe.md)
-  - 进阶
+  - 进阶功能
     - [路径动画](/zh-cn/dom/path.md)
     - [时间轴动画](/zh-cn/dom/timeline.md)
     - [自定义速度曲线](/zh-cn/dom/curve.md)
