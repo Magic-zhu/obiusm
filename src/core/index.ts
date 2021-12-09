@@ -126,7 +126,11 @@ class Obisum extends EventEmitter implements ObisumType {
     return this;
   }
 
-  static keyframe(keyframe: Keyframe, options) {
+  static keyframe(id: string, keyframe: Keyframe, options) {
+    this.checkIfHasDomRender(() => {
+      const ani = this.create().keyframe(id, keyframe, options);
+      this.dom(this.current, ani).render();
+    });
     return this;
   }
 }

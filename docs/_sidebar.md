@@ -1,6 +1,6 @@
 - 快速开始
   - [介绍](/zh-cn/index.md)
-- dom 渲染
+- dom
   - 基础功能
     - [快速上手](/zh-cn/dom/install.md)
     - [位移](/zh-cn/dom/move.md)
@@ -8,8 +8,9 @@
     - [放大缩小](/zh-cn/dom/scale.md)
     - [属性变化](/zh-cn/dom/attr.md)
     - [等待](/zh-cn/dom/wait.md)
-    - [关键帧动画](/zh-cn/dom/keyframe.md)
   - 进阶功能
+    - [关键帧动画](/zh-cn/dom/keyframe.md)
+    - [增量动画](/zh-cn/dom/requestAnimation.md)
     - [路径动画](/zh-cn/dom/path.md)
     - [时间轴动画](/zh-cn/dom/timeline.md)
     - [自定义速度曲线](/zh-cn/dom/curve.md)
@@ -23,9 +24,9 @@
     - [独立控制器](/zh-cn/apng/independent.md)
   - 进阶
     - [Cache 插件永久缓存](/zh-cn/apng/cache.md)
-- canvas2D 渲染
+- canvas2D
   - 敬请期待
-- webgl 渲染
+- webgl
   - 敬请期待
-- 小程序渲染
+- 小程序
   - 敬请期待
