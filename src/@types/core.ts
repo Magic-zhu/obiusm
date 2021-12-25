@@ -34,6 +34,10 @@ export interface RotateOptions {
     duration?: number;
     timeFunction?: string;
     transformOrigin?:string;
+    /**
+     * 增量函数
+     */
+    frameFunction?: Function
 }
 
 export interface SkewOptions {
@@ -49,6 +53,10 @@ export interface MoveOptions {
     y?: number | string;
     duration?: number;
     timeFunction?: string;
+    /**
+     * 增量函数
+     */
+    frameFunction?: Function
 }
 
 export interface AttributeOptions {
@@ -88,6 +96,13 @@ export interface PathOptions {
     ratio?:number,
 }
 
-export interface Keyframe {
-    [key:number]:Object
+export interface KeyframeAction {
+   [key:string]:string
 }
+
+export interface KeyframeItem {
+    process:string
+    action:KeyframeAction
+}
+
+export type Keyframe = KeyframeItem []

@@ -17,5 +17,6 @@ module.exports = {
   'rules': {
     'require-jsdoc': 'off',
     'indent': 'off',
+    'linebreak-style': 'off',
   },
 };

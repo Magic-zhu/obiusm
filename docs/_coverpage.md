@@ -1,4 +1,4 @@
-# obiusm <small>0.0.1</small>
+# obiusm
 
 > 一个简单易用，灵活多变的动画库.
 

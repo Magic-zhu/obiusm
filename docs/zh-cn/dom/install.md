@@ -9,7 +9,7 @@
 ```
 
 ```shell
-    npm install  --save
+    npm install obisum-dom --save
 ```
 
 ## 使用

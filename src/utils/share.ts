@@ -79,7 +79,7 @@ export function getRandomString32() {
   ];
   let num = '';
   for (let i = 0; i < 32; i++) {
-    num += arr[Math.random() * 36];
+    num += arr[Math.round(Math.random() * 36)];
   }
   return num;
 }

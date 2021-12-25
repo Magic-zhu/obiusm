@@ -1,7 +1,7 @@
-### mobius -> obiusm
+## obiusm
 
-An animation framework
+A javascript/typescript animation framework
 
-docs:
+:bangbang: still in development
 
-ESLINT: Google
+docs: https://magic-zhu.github.io/obiusm/

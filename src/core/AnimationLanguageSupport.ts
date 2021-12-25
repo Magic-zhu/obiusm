@@ -100,16 +100,16 @@ class AnimationLanguageSupport {
       children: [],
     };
     actions.duration = isUndef(options.duration) ? 400 : options.duration;
-    actions.timeFunction = isUndef(options.timeFunction)
-      ? 'linear'
-      : options.timeFunction;
+    actions.timeFunction = isUndef(options.timeFunction) ?
+      'linear' :
+      options.timeFunction;
     args.forEach((res) => {
       res.parent = actions;
       res.duration = actions.duration;
       res.timeFunction =
-        res.timeFunction === undefined
-          ? actions.timeFunction
-          : res.timeFunction;
+        res.timeFunction === undefined ?
+          actions.timeFunction :
+          res.timeFunction;
       actions.children.push(res);
     });
     this.actions.children.push(actions);
@@ -134,7 +134,13 @@ class AnimationLanguageSupport {
     const action = this.initAction();
     action.action = 'move';
     if (isObject(options)) {
-      copyOptions(options, action, ['x', 'y', 'duration', 'timeFunction']);
+      copyOptions(options, action, [
+        'x',
+        'y',
+        'duration',
+        'timeFunction',
+        'frameFunction',
+      ]);
     } else {
       action.x = options;
       action.y = y;
@@ -251,9 +257,34 @@ class AnimationLanguageSupport {
     return this;
   }
 
-  keyframe(keyframe: Keyframe, options) {
+  /**
+   *
+   * @param {string} id - Unique tag
+   * @param {Keyframe} keyframe
+   * @param {*} options
+   * @return {*}
+   * @memberof AnimationLanguageSupport
+   */
+  keyframe(id: string, keyframe: Keyframe, options = {}) {
     const action: Action = this.initAction();
     action.action = AnimationType.KEYFRAME;
+    action.keyframe = keyframe;
+    if (isUndef(id) || typeof id !== 'string') {
+      throw new Error(
+        `id is necessary and it should be a string,
+        so you can remove it sometime`,
+      );
+    }
+    action.uid = id;
+    copyOptions(options, action, [
+      'duration',
+      'timeFunction',
+      'fillMode',
+      'delay',
+      'iterationCount',
+      'direction',
+      'playState',
+    ]);
     this.actions.children.push(action);
     return this;
   }
