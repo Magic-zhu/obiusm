@@ -31,6 +31,7 @@ export interface RotateOptions {
     duration?: number;
     timeFunction?: string;
     transformOrigin?: string;
+    frameFunction?: Function;
 }
 export interface SkewOptions {
     x?: number | string;
@@ -44,6 +45,7 @@ export interface MoveOptions {
     y?: number | string;
     duration?: number;
     timeFunction?: string;
+    frameFunction?: Function;
 }
 export interface AttributeOptions {
     key: string;

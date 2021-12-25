@@ -16,29 +16,30 @@ class Obisum extends EventEmitter implements ObisumType {
   static plugins: PluginsMap = {};
   static dom: Function;
   static func: any = {};
+
   static use(plugin: Plugin) {
     const pluginName = plugin.pluginName;
     if (isUndef(pluginName)) {
       console.error(
-        `Plugin Class must specify plugin's name 
+        `🌈 Plugin Class must specify plugin's name 
           in static property by 'name' field.`,
       );
       return this;
     }
     if (isUndef(plugin.installed)) {
       console.error(
-        `Plugin Class must specify plugin's 
+        `🌈 Plugin Class must specify plugin's 
           installed in static property by 'installed' field.`,
       );
       return this;
     }
     if (isUndef(plugin.install)) {
-      console.error(`Plugin Class must have an install method.`);
+      console.error(`🌈 Plugin Class must have an install method.`);
       return this;
     }
     if (this.plugins[pluginName] != undefined) {
       console.warn(
-        `🌈This plugin has been registered, 
+        `🌈 This plugin has been registered, 
           maybe you could change plugin\'s name`,
       );
       return this;
@@ -80,6 +81,15 @@ class Obisum extends EventEmitter implements ObisumType {
   static bind(element: HTMLElement) {
     this.current = element;
     return this;
+  }
+
+  static query(query: string) {
+    const dom: HTMLElement | null = document.querySelector(query);
+    if (!dom) {
+      console.error('query:no matches are found');
+      return;
+    }
+    return dom;
   }
 
   static checkIfHasDomRender(callback) {

@@ -1,8 +1,5 @@
-### mobius -> obiusm
+## obiusm
 
-An animation framework
-
+A javascript/typescript animation framework
 
 docs:
-
-ESLINT: Google

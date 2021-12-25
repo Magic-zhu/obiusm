@@ -34,6 +34,10 @@ export interface RotateOptions {
     duration?: number;
     timeFunction?: string;
     transformOrigin?:string;
+    /**
+     * 增量函数
+     */
+    frameFunction?: Function
 }
 
 export interface SkewOptions {
@@ -49,6 +53,10 @@ export interface MoveOptions {
     y?: number | string;
     duration?: number;
     timeFunction?: string;
+    /**
+     * 增量函数
+     */
+    frameFunction?: Function
 }
 
 export interface AttributeOptions {

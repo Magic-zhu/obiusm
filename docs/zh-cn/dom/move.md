@@ -1,18 +1,18 @@
 ## 位移
 
-示例图片
+示例图片<br>
+
 ![](../../assets/move.gif)
 
 ### api 介绍
 
-moveTo(x,y,duration)
+:small_orange_diamond: moveTo(x,y,duration)
 
 - x: x 坐标 可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'
 - y: y 坐标 可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'
 - duration：动画持续时间
 
-或者可以传入一个对象
-moveTo(options)
+:small_orange_diamond: moveTo(options)
 
 - options.x 坐标 同上
 - options.y 坐标 同上

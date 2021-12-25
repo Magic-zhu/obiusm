@@ -134,7 +134,13 @@ class AnimationLanguageSupport {
     const action = this.initAction();
     action.action = 'move';
     if (isObject(options)) {
-      copyOptions(options, action, ['x', 'y', 'duration', 'timeFunction']);
+      copyOptions(options, action, [
+        'x',
+        'y',
+        'duration',
+        'timeFunction',
+        'frameFunction',
+      ]);
     } else {
       action.x = options;
       action.y = y;
