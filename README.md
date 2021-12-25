@@ -2,4 +2,6 @@
 
 A javascript/typescript animation framework
 
-docs:
+:bangbang: still in development
+
+docs: https://magic-zhu.github.io/obiusm/
