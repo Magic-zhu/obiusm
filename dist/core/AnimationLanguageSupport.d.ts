@@ -1,10 +1,8 @@
-import { TranslateOptions, ScaleOptions, RotateOptions, MoveOptions, AttributeOptions, StepOptions, SkewOptions, PathOptions, Keyframe, StatusDescription, ActionTree, Point } from '../@types';
+import { TranslateOptions, ScaleOptions, RotateOptions, MoveOptions, AttributeOptions, StepOptions, SkewOptions, PathOptions, Keyframe, ActionTree, Point } from '../@types';
 declare class AnimationLanguageSupport {
     actions: ActionTree;
     constructor();
     private initAction;
-    statusOn(statusDescription: StatusDescription | string, description?: string, transformOrigin?: string): this;
-    statusOff(statusDescription: StatusDescription | string): this;
     step(args: any[], options?: StepOptions): this;
     translate(options: TranslateOptions | number, y?: number, duration?: number): this;
     moveTo(options: MoveOptions | number, y?: number, duration?: number): this;

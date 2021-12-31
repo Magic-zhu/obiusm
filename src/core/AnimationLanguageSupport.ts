@@ -9,7 +9,6 @@ import {
   SkewOptions,
   PathOptions,
   Keyframe,
-  StatusDescription,
   ActionTree,
   Point,
   AnimationType,
@@ -43,55 +42,6 @@ class AnimationLanguageSupport {
     };
   }
 
-  statusOn(
-    statusDescription: StatusDescription | string,
-    description?: string,
-    transformOrigin?: string,
-  ) {
-    let _statusDescription;
-    if (isObject(statusDescription)) {
-      _statusDescription = statusDescription;
-    } else {
-      _statusDescription = {
-        type: statusDescription,
-        description: description,
-        transformOrigin: transformOrigin || '50% 50%',
-      };
-    }
-    const action: Action = {
-      type: 'single',
-      action: 'statusOn',
-      status: _statusDescription,
-      parent: null,
-      children: [],
-      duration: -1,
-    };
-    this.actions.children.push(action);
-    return this;
-  }
-
-  statusOff(statusDescription: StatusDescription | string) {
-    let _statusDescription;
-    if (isObject(statusDescription)) {
-      _statusDescription = statusDescription;
-    } else {
-      _statusDescription = {
-        type: statusDescription,
-        description: '',
-      };
-    }
-    const action: Action = {
-      type: 'single',
-      action: 'statusOff',
-      status: _statusDescription,
-      parent: null,
-      children: [],
-      duration: -1,
-    };
-    this.actions.children.push(action);
-    return this;
-  }
-
   step(args: any[], options: StepOptions = {}) {
     if (args.length == 0) return;
     const actions: Action = {
@@ -100,16 +50,16 @@ class AnimationLanguageSupport {
       children: [],
     };
     actions.duration = isUndef(options.duration) ? 400 : options.duration;
-    actions.timeFunction = isUndef(options.timeFunction) ?
-      'linear' :
-      options.timeFunction;
+    actions.timeFunction = isUndef(options.timeFunction)
+      ? 'linear'
+      : options.timeFunction;
     args.forEach((res) => {
       res.parent = actions;
       res.duration = actions.duration;
       res.timeFunction =
-        res.timeFunction === undefined ?
-          actions.timeFunction :
-          res.timeFunction;
+        res.timeFunction === undefined
+          ? actions.timeFunction
+          : res.timeFunction;
       actions.children.push(res);
     });
     this.actions.children.push(actions);
