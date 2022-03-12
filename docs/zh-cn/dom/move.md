@@ -8,16 +8,21 @@
 
 :small_orange_diamond: moveTo(x,y,duration)
 
-- x: x 坐标 可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'
-- y: y 坐标 可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'
-- duration：动画持续时间
+
+|参数|类型|说明|默认值
+|:---:|:---:|:---|:---:|
+|x|number,string|可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'|
+|y|number,string|可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'||
+|duration|number|动画持续时间 单位ms|400|
 
 :small_orange_diamond: moveTo(options)
 
-- options.x 坐标 同上
-- options.y 坐标 同上
-- options.duration 动画时间
-- options.timeFunction 例如 'ease' 'ease-in-out' 等
+|参数|类型|说明|默认值
+|:---:|:---:|:---|:---:|
+|x|number,string|可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'|
+|y|number,string|可以是 number 默认单位'px' 可以是带单位的 string ex:'100vw'||
+|duration|number|动画持续时间 单位ms|400|
+|timeFunction|string|例如 'ease' 'ease-in-out' 等|'linear'|
 
 ### 示例代码
 
@@ -37,7 +42,6 @@ let Animation = obiusm
   .moveTo("100vw", "0")
   .moveTo(200, 200, 1000)
   .moveTo({ x: 0, y: 0, duration: 1000, timeFunction: "ease" });
-console.log(Animation);
 let renderer = obiusm.dom(document.getElementById("app"), Animation);
 renderer.render();
 ```

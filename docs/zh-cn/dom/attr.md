@@ -7,8 +7,11 @@
 
 attribute(key,value,duration)
 
-- key: 属性键
-- value: 属性值
+|参数|类型|说明|默认值
+|:---:|:---:|:---|:---:|
+|key|string|属性键|-|
+|value|string|属性值|-|
+|value|string|属性值|400|
 
 或者可以传入一个对象
 attribute(options)

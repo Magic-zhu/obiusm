@@ -8,6 +8,7 @@
   "scripts": {
     "build": "rollup --config",
     "start": "rollup --config -w",
+    "doc":"docsify serve ./docs",
     "test": "test"
   },
   "repository": {
@@ -16,10 +17,11 @@
   },
   "keywords": [
     "animation",
-    "webgl",
+    "dom",
     "canvas",
-    "svg",
-    "dom"
+    "webgl",
+    "typescript",
+    "javascript"
   ],
   "author": "朱睿家",
   "license": "MIT",

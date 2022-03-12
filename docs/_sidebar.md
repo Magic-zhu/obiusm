@@ -10,9 +10,9 @@
     - [等待](/zh-cn/dom/wait.md)
   - 进阶功能
     - [关键帧动画](/zh-cn/dom/keyframe.md)
-    - [增量动画|逐帧动画](/zh-cn/dom/requestAnimation.md)
+    - [增量动画|逐帧动画❌](/zh-cn/dom/requestAnimation.md)
     - [路径动画](/zh-cn/dom/path.md)
-    - [时间轴动画](/zh-cn/dom/timeline.md)
+    - [时间轴动画❌](/zh-cn/dom/timeline.md)
 - canvas2D
   - 敬请期待
 - webgl

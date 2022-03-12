@@ -6,20 +6,24 @@
 
 ### api 介绍
 
-scale(x,y,duration)
+**:small_orange_diamond: scale(x,y,duration)**
 
-- x: x 轴向
-- y: y 轴向
-- duration: 持续时间
+|   参数   |  类型  |   说明   | 默认值 |
+|:--------:|:------:|:------:|:------:|
+|    x     | number |  x 轴向  |        |
+|    y     | number |  y 轴向  |        |
+| duration | number | 持续时间 |  400   |
 
 或者可以传入一个对象
-scale(options)
+**:small_orange_diamond: scale(options)**
 
-- options.x x 轴向
-- options.y y 轴向
-- options.duration 动画时间
-- options.timeFunction 例如 'ease' 'ease-in-out' 等
-- options.transformOrigin 变换中心点位置
+|      参数       |  类型  |             说明             |  默认值   |
+|:---------------:|:------:|:--------------------------:|:---------:|
+|        x        | number |            x 轴向            |           |
+|        y        | number |            y 轴向            |           |
+|    duration     | number |           持续时间           |    400    |
+|  timeFunction   | string | 例如 'ease' 'ease-in-out' 等 | 'linear ' |
+| transformOrigin | string |        变换中心点位置        | '50% 50%' |
 
 ### 示例代码
 
