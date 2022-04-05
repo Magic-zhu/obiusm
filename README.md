@@ -4,6 +4,10 @@ A javascript/typescript animation framework
 
 verry easy to use :)
 
+now for 🙂:
+  + html dom
+  + threeJs(its Animation System is difficalt to use,so translate to some simple API)
+
 #### example
 ```js
 const app = document.getElementById('app');
